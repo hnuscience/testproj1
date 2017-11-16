@@ -1,0 +1,25 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using System.IO;
+using System.Collections;
+
+public class txteddie : MonoBehaviour {
+	//string str = "/sdcard/aaa.txt";
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		GameObject.Find("Canvas/Text").GetComponent<Text>().text="safdf";
+		StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/aaeddie.txt",true);//去掉true是擦去原有内容重写，不去掉是追加内容，文件路径/data/data/包名/files
+		sw.WriteLine("success!");
+
+		sw.Close();
+		sw.Dispose ();
+		FileInfo testFile = new FileInfo(Application.persistentDataPath + "/persistentDataPath.txt");  
+		Debug.Log(testFile); 
+	}
+}
